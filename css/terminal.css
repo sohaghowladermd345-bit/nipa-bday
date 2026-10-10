@@ -1,0 +1,101 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: #050608;
+  color: #d8d8d8;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+body {
+  padding: 40px 24px;
+  max-width: 780px;
+  margin: 0 auto;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(57, 255, 20, 0.03) 0px,
+    rgba(57, 255, 20, 0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 240px;
+  background: radial-gradient(ellipse at top, rgba(57, 255, 20, 0.09), transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: inherit;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 0 8px rgba(57, 255, 20, 0.15);
+}
+
+pre .line-default { color: #b8b8b8; }
+pre .line-prompt { color: #7a8078; }
+pre .line-info { color: #39ff14; text-shadow: 0 0 12px rgba(57, 255, 20, 0.55); }
+pre .line-hint { color: #ffb84d; text-shadow: 0 0 12px rgba(255, 184, 77, 0.5); }
+pre .line-auth {
+  color: #c44dff;
+  text-shadow: 0 0 14px rgba(196, 77, 255, 0.6);
+  letter-spacing: 0.1em;
+}
+pre .line-error { color: #ff5c5c; text-shadow: 0 0 12px rgba(255, 92, 92, 0.5); }
+pre .line-success { color: #39ff14; text-shadow: 0 0 16px rgba(57, 255, 20, 0.8); }
+pre .line-dim { color: #6a6a75; }
+
+.prompt { color: #39ff14; text-shadow: 0 0 12px rgba(57, 255, 20, 0.5); }
+
+input#passinput {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #39ff14;
+  color: #39ff14;
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+  padding: 2px 6px;
+  width: 240px;
+  caret-color: #39ff14;
+  text-shadow: 0 0 12px rgba(57, 255, 20, 0.6);
+  transition: box-shadow 0.3s ease;
+}
+input#passinput:focus {
+  box-shadow: 0 4px 24px -4px rgba(57, 255, 20, 0.7);
+}
+
+.error {
+  color: #ff5c5c;
+  margin-top: 16px;
+  white-space: pre-wrap;
+  text-shadow: 0 0 12px rgba(255, 92, 92, 0.5);
+}
+
+a { color: #39ff14; text-decoration: none; }
+a:hover { text-decoration: underline; text-shadow: 0 0 16px rgba(57, 255, 20, 0.7); }
+
+.cursor::after {
+  content: '_';
+  color: #39ff14;
+  animation: blink 1s steps(2, start) infinite;
+}
+@keyframes blink { to { visibility: hidden; } }

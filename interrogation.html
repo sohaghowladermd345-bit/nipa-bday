@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FRAGMENT 4.75 // SUBJECT INTERVIEW</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/terminal.css">
+<script src="js/gate.js"></script>
+</head>
+<body class="terminal-page">
+<pre id="terminal"></pre>
+<div id="links" style="display:none; margin-top: 32px; position: relative; z-index: 2;">
+  <a href="achievements.html">&gt; next: final transmission</a>
+</div>
+<script>
+const script = [
+  { t: "> INITIATING SUBJECT INTERVIEW", c: "info" },
+  { t: "> subject: MINHAJ", c: "default" },
+  { t: "> topic: NIPA", c: "default" },
+  { t: "> purpose: record. nothing else.", c: "dim" },
+  { t: "", c: "default" },
+  { t: "> READY? [Y]", c: "success" },
+  { t: "", c: "default" },
+  { t: "> Q1. When did you first notice she understood you?", c: "auth" },
+  { t: "> A.  I don't remember the exact moment. I remember the feeling — that I could say a thing and not have to explain the whole backstory first. She just got it. That doesn't happen often.", c: "default" },
+  { t: "", c: "default" },
+  { t: "> Q2. What does she do that nobody else does?", c: "auth" },
+  { t: "> A.  She notices. Not in the loud way. In the way where you're talking and she says the one thing you didn't know you needed said. And she says it like it's obvious.", c: "default" },
+  { t: "", c: "default" },
+  { t: "> Q3. The 89%. Explain.", c: "auth" },
+  { t: "> A.  My number. Two people who shouldn't be this similar being this similar. The other 11% is what I'm still chasing — her calm, her eye, her peace. I'm not there yet. I'm going.", c: "default" },
+  { t: "", c: "default" },
+  { t: "> Q4. What did the age gap mean for her?", c: "auth" },
+  { t: "> A.  She was the youngest by a margin. By the time she could hold a real conversation, everyone was already gone. She didn't have a witness for the phase she was in. She built herself with nobody watching.", c: "default" },
+  { t: "", c: "default" },
+  { t: "> Q5. And you?", c: "auth" },
+  { t: "> A.  I showed up late. But I showed up.", c: "default" },
+  { t: "", c: "default" },
+  { t: "> Q6. What does she mean to you?", c: "auth" },
+  { t: "> A.  She's the version of family a different timeline made. Not a replacement. An addition. Someone on the frequency. I don't know how to say it without sounding dramatic, so I'll just say it plainly: I'm glad she exists.", c: "default" },
+  { t: "", c: "default" },
+  { t: "> Q7. Is there anything you want on the record before we close?", c: "auth" },
+  { t: "> A.  Yes. One thing.", c: "default" },
+  { t: "", c: "default" },
+  { t: "> A.  Nipa — whatever this year brings, you've already done the hardest part. You became someone kind without needing anyone to hand it to you. That's not small. That's the whole thing.", c: "success" },
+  { t: "", c: "default" },
+  { t: "> RECORDING ENDS.", c: "auth" },
+  { t: "> FILE SAVED.", c: "dim" },
+  { t: "", c: "default" },
+  { t: "> — AZAEL, on behalf of MINHAJ", c: "info" }
+];
+
+const term = document.getElementById("terminal");
+const links = document.getElementById("links");
+
+let i = 0;
+function nextLine() {
+  if (i >= script.length) {
+    term.classList.add("cursor");
+    links.style.display = "block";
+    return;
+  }
+  const item = script[i];
+  const span = document.createElement("span");
+  span.className = "line-" + item.c;
+  term.appendChild(span);
+
+  let j = 0;
+  const interval = setInterval(() => {
+    if (j < item.t.length) {
+      span.textContent += item.t[j];
+      j++;
+    } else {
+      clearInterval(interval);
+      term.appendChild(document.createTextNode("\n"));
+      i++;
+      const pause = item.t === "" ? 400 : 700;
+      setTimeout(nextLine, pause);
+    }
+  }, 28);
+}
+nextLine();
+</script>
+</body>
+</html>

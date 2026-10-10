@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FRAGMENT 2.75 // WOMEN WHO DID IT FIRST</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<script src="js/gate.js"></script>
+</head>
+<body>
+<main>
+  <p class="boot">&gt; FRAGMENT 2.75 &mdash; ARCHIVE</p>
+
+  <article>
+    <h2>Women Who Did It First</h2>
+
+    <p class="intro">
+      Five women. Not because you need role models — you don't. Because they did the same thing you do: they looked at the world, noticed what nobody else noticed, and refused to look away. Read them like they're yours. Because in a way, they are.
+    </p>
+
+    <section class="ancestor">
+      <h3>Ada Lovelace</h3>
+      <p class="years">1815 &mdash; 1852</p>
+      <p class="bio">Wrote the first algorithm in history before the machine that would run it even existed. Called herself a "poetical scientist" — because she refused to choose between poetry and math, so she just did both. Her father was Lord Byron. She never met him. She outlived him in every way that matters.</p>
+      <p class="connect">Both. Creative and analytical, in the same body, at the same time. You know what that feels like. It's not a contradiction. It's the whole thing.</p>
+    </section>
+
+    <section class="ancestor">
+      <h3>Mary Anning</h3>
+      <p class="years">1799 &mdash; 1847</p>
+      <p class="bio">Found the first complete ichthyosaur skeleton at age 12. Sold fossils to survive. Scientists published her discoveries under their own names. She was never allowed into the Geological Society — the very society built on things she dug out of the earth herself.</p>
+      <p class="connect">She saw what was there before anyone believed it was there. You take photos of petals on concrete like you're proving the same thing.</p>
+    </section>
+
+    <section class="ancestor">
+      <h3>Artemisia Gentileschi</h3>
+      <p class="years">1593 &mdash; 1656</p>
+      <p class="bio">Painted women as heroes in an era when women were only allowed to be painted as objects. Survived assault as a young woman, then turned the trial transcript into the subject of her most famous paintings. Her Judith Slaying Holofernes is one of the most violent paintings by anyone, ever. She made it at 24.</p>
+      <p class="connect">She took the worst thing that happened to her and made it into something that lasts. You know that move.</p>
+    </section>
+
+    <section class="ancestor">
+      <h3>Wangari Maathai</h3>
+      <p class="years">1940 &mdash; 2011</p>
+      <p class="bio">First African woman to win the Nobel Peace Prize. Started the Green Belt Movement. Planted 51 million trees across Kenya. Was beaten, jailed, and dismissed by the government for it. Kept planting anyway.</p>
+      <p class="connect">She believed trees were worth more than her own safety. You photograph them like you agree.</p>
+    </section>
+
+    <section class="ancestor">
+      <h3>Hedy Lamarr</h3>
+      <p class="years">1914 &mdash; 2000</p>
+      <p class="bio">One of the most famous faces in Hollywood. Also invented frequency-hopping technology during WWII that later became the basis for WiFi, GPS, and Bluetooth. Nobody took her seriously as an inventor. She patented it anyway. The patent expired before anyone used it. She never made a single dollar from it.</p>
+      <p class="connect">Everyone saw the face. Nobody saw the mind. Different century, same problem.</p>
+    </section>
+
+    <p style="margin-top: 60px; font-style: italic; color: var(--text-dim); text-align: center;">None of them asked permission. Neither do you. That's the thread.</p>
+  </article>
+
+  <nav>
+    <a href="photos.html">&gt; next: fragment 3</a>
+  </nav>
+</main>
+<script>
+const els = document.querySelectorAll('article p, article h2, .intro, .ancestor, figure');
+els.forEach((el, i) => {
+  el.classList.add('fade-in');
+  el.style.transitionDelay = (i * 0.05) + 's';
+});
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+els.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
+

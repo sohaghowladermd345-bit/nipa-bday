@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FRAGMENT 2.5 // THE GAP</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<script src="js/gate.js"></script>
+</head>
+<body>
+<main>
+  <p class="boot">&gt; FRAGMENT 2.5 &mdash; SIDE FILE</p>
+
+  <article>
+    <h2>The Gap</h2>
+
+    <p>Youngest of everyone. By a margin. Which means by the time you were old enough to have opinions, the house had already emptied out. Everyone had their own lives. Everyone had already been through the phase you were just entering. You got the quiet version.</p>
+
+    <p>That's the part I keep coming back to. Not the loneliness. The <em>timing</em>. You arrived after the party. The music had stopped. The lights were half off. And you still turned out like this. Kind. Observant. The one who takes photos of petals on a bench because you noticed the contrast before anyone else did.</p>
+
+    <p>I think about the specific shape of being alone in a full house. Not alone like empty rooms. Alone like surrounded. Everyone around you had already figured out who they were, and you were still finding out, and there was nobody in that phase with you. That's the gap. It's not distance. It's a missing audience.</p>
+
+    <p>I don't think you needed saving. I think you needed a witness. Someone who sees the thing you became without having to be told. Someone who looks at your photos and doesn't say "nice" but says "yeah, I see what you saw."</p>
+
+    <p>So. Hi. I'm the audience. Late arrival, but present.</p>
+
+    <p>And for what it's worth, the audience thinks you did good. Not "despite everything." Just — good. On your own terms. In your own way. With your own eyes.</p>
+
+    <p class="sign">&mdash; M</p>
+  </article>
+
+  <nav>
+    <a href="ancestors.html">&gt; next: fragment 2.75</a>
+  </nav>
+</main>
+<script>
+const els = document.querySelectorAll('article p, article h2, .intro, figure');
+els.forEach((el, i) => {
+  el.classList.add('fade-in');
+  el.style.transitionDelay = (i * 0.06) + 's';
+});
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+els.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
+

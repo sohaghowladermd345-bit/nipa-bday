@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FRAGMENT 4.85 // THE NIGHT YOU ARRIVED</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<script src="js/gate.js"></script>
+<style>
+.starmap-img {
+  width: 100%; border-radius: 8px;
+  box-shadow: 0 0 80px rgba(57,255,20,0.15);
+  border: 1px solid rgba(57,255,20,0.2);
+  margin-bottom: 30px;
+}
+</style>
+</head>
+<body>
+<main>
+  <p class="boot">&gt; FRAGMENT 4.85 &mdash; SKY ARCHIVE</p>
+
+  <article>
+    <h2>The Night You Arrived</h2>
+
+    <img src="img/starmap.png" alt="star map" class="starmap-img">
+
+    <p style="text-align:center; font-style:italic; color:var(--text-dim); font-size:15px; margin-bottom:50px;">
+      [11th October, 2009] &middot; [Khulna]
+    </p>
+
+    <p>On the night you arrived, the sky arranged itself like this. Same stars as every other night, but a different shape. Because you were looking at them from a new angle now. Because the world had one more person in it who noticed things.</p>
+
+    <p>Not for a prophecy. Not for a war. Just for you, so someone could look up and say: <em>there. That's where she started.</em></p>
+
+    <p>The universe had a lot going on that night. It still made room.</p>
+
+    <p class="sign">&mdash; M</p>
+  </article>
+
+  <nav>
+    <a href="one-thing.html">&gt; next: fragment 4.9</a>
+  </nav>
+</main>
+<script>
+const els = document.querySelectorAll('article p, article h2, .intro, img');
+els.forEach((el, i) => { el.classList.add('fade-in'); el.style.transitionDelay = (i * 0.08) + 's'; });
+const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
+els.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
+

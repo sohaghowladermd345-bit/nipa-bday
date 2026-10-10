@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FRAGMENT 4.5 // FRAGMENTS OF US</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<script src="js/gate.js"></script>
+<style>
+.frag { margin: 40px 0; text-align: center; font-size: 22px; line-height: 1.5; }
+.frag .quote { font-style: italic; color: var(--green-soft); text-shadow: 0 0 14px rgba(57,255,20,0.3); }
+.frag .note { display: block; margin-top: 8px; font-size: 14px; color: var(--text-dim); font-style: italic; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em; }
+.frag-big { font-size: 30px; margin: 70px 0; }
+</style>
+</head>
+<body>
+<main>
+  <p class="boot">&gt; FRAGMENT 4.5 &mdash; FRAGMENTS OF US</p>
+
+  <article>
+
+    <p class="intro" style="text-align:center; border:none; padding:0;">
+      Small things. Not in order. Not ranked.
+    </p>
+
+    <div class="frag"><span class="quote">two years ago, briefly</span><span class="note">didn't know yet what we had in common</span></div>
+
+
+    <div class="frag"><span class="quote">89%</span><span class="note">my number. I am sticking with it.</span></div>
+
+    <div class="frag"><span class="quote">the other 11%</span><span class="note">my to-do list</span></div>
+
+    <div class="frag"><span class="quote">bangla — both of us failing at it</span><span class="note">but somehow understanding anyway</span></div>
+
+    <div class="frag"><span class="quote">the first photo you sent me</span><span class="note">I looked at it longer than I said I did</span></div>
+
+    <div class="frag"><span class="quote">siblings from another universe</span><span class="note">your words. I kept them.</span></div>
+
+    <div class="frag"><span class="quote">you noticing things I walked past</span><span class="note">that's a whole way of being alive</span></div>
+
+    <div class="frag"><span class="quote">the pigeon on the rock</span><span class="note">alone but not lonely</span></div>
+
+    <div class="frag"><span class="quote">petals on the bench</span><span class="note">you saw the falling part first</span></div>
+
+    <div class="frag"><span class="quote">you knowing which messages to send</span><span class="note">without asking what kind of day it was</span></div>
+
+    <div class="frag"><span class="quote">apu / same age</span><span class="note">both true, still weird, still ours</span></div>
+
+    <div class="frag"><span class="quote">your photos have a mood</span><span class="note">that mood is <em>calm</em>. I don't have it. You do.</span></div>
+
+    <div class="frag"><span class="quote">when you said we think alike</span><span class="note">I already knew, but hearing it landed different</span></div>
+
+    <div class="frag frag-big"><span class="quote">you exist</span><span class="note">and I'm better for it</span></div>
+
+  </article>
+
+  <nav>
+    <a href="interrogation.html">&gt; next: interrogation</a>
+  </nav>
+</main>
+<script>
+const els = document.querySelectorAll('.frag, .intro, article h2');
+els.forEach((el, i) => {
+  el.classList.add('fade-in');
+  el.style.transitionDelay = (i * 0.05) + 's';
+});
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.15 });
+els.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FRAGMENT 4 // RECIPE</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<script src="js/gate.js"></script>
+</head>
+<body>
+<main>
+  <p class="boot">&gt; FRAGMENT 4 &mdash; RECIPE</p>
+
+  <article>
+    <h2>Recipe for Nipa</h2>
+
+    <p class="intro">Prep time: 17 years. Serves: one person, eventually.</p>
+
+    <section class="ancestor">
+      <h3>Ingredients</h3>
+      <p class="bio">
+        &mdash; 1 childhood that ended early<br>
+        &mdash; A generous handful of silence<br>
+        &mdash; A camera, film preferred<br>
+        &mdash; 3 cups of noticing what other people miss<br>
+        &mdash; 1 tablespoon of stubbornness<br>
+        &mdash; Fresh flowers, still on the branch<br>
+        &mdash; A pigeon, for company<br>
+        &mdash; A brother from a different timeline<br>
+        &mdash; Salt, to taste
+      </p>
+    </section>
+
+    <section class="ancestor">
+      <h3>Method</h3>
+      <p class="bio">
+        <strong>1.</strong> Take the childhood. Don't cut off the hard parts. They're the flavor base.<br><br>
+        <strong>2.</strong> Simmer in silence over low heat until everyone else in the house has gone.<br><br>
+        <strong>3.</strong> While it reduces, notice things. The bench with petals on it. The pigeon on the rock. The light through the bougainvillea. Photograph all of them.<br><br>
+        <strong>4.</strong> Add stubbornness. Stir counterclockwise. Do not let it burn.<br><br>
+        <strong>5.</strong> Somewhere along the way, drop in a brother you didn't know you had. Same age as you. Different universe. He'll argue with this step. Ignore him.<br><br>
+        <strong>6.</strong> Serve warm. Do not refrigerate. Does not keep. Best eaten immediately.
+      </p>
+    </section>
+
+    <section class="ancestor">
+      <h3>Serving Suggestion</h3>
+      <p class="bio">Eat on a porch. Alone, or with someone who doesn't ask questions. Follow with tea. Follow the tea with a walk. Follow the walk with more tea.</p>
+      <p class="connect">This dish is not for everyone. It's for the people who get it.</p>
+    </section>
+
+    <section class="ancestor">
+      <h3>Chef's Note</h3>
+      <p class="bio">I've never made this. I've only watched it being made. From a distance. Through a screen. That counts, I think. That counts.</p>
+    </section>
+
+    <p class="sign" style="margin-top: 60px; text-align: center;">&mdash; M</p>
+  </article>
+
+  <nav>
+    <a href="letter.html">&gt; next: fragment 4.25</a>
+  </nav>
+</main>
+<script>
+const els = document.querySelectorAll('article p, article h2, .intro, .ancestor');
+els.forEach((el, i) => { el.classList.add('fade-in'); el.style.transitionDelay = (i * 0.06) + 's'; });
+const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
+els.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

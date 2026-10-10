@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FRAGMENT 2 // THE PARALLEL UNIVERSE FILE</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<script src="js/gate.js"></script>
+</head>
+<body>
+<main>
+  <p class="boot">&gt; LOADING FRAGMENT 2...</p>
+
+  <article>
+    <p>Okay. Technical part's done. Here's the weird part.</p>
+
+    <p>Apu. Same age as me. Both true. I've stopped trying to reconcile this.</p>
+
+    <p>I told you once that I think we're 89% similar. I've been sitting with that number for a while now. Here's my theory about the other 11%: it's the stuff I'm still trying to grow into. The calm. The way you look at things and find something worth keeping. The photography thing, not just the photos, the <em>act</em> of stopping to notice. The peace. You have it and I'm still building it. So really, the 11% isn't a gap between us. It's a to-do list.</p>
+
+    <p>And the sibling thing. You're the youngest. I know what that means. Big age gaps, everyone already grown, everyone already done with the phase you were just entering. Nobody around who gets it because by the time you got there, they'd all moved on. That's a specific kind of alone. I'm not going to pretend I lived it exactly.</p>
+
+    <p>But here's what I notice. You said we're siblings from another universe, and I think that's you finding the thing you didn't have. Not a replacement for the actual siblings. An addition. Someone on your frequency. Someone who doesn't need the backstory explained because the backstory is the same shape.</p>
+
+    <p>Two years ago we talked. Then nothing. Then now. Most people don't get to reopen a book and find the page exactly where they left it. We did. That's not nothing.</p>
+
+    <p>You called me sweet once. I'm still processing that.</p>
+
+    <p>There's a thing I keep coming back to when I think about us. Two people, different lives, different houses, different screens, and somehow the same way of seeing. You could hand me a photo and I'd know what you meant by it. I could say one line and you'd get where it came from. That's not common. That's a frequency thing. And I don't know what to do with it except say it out loud.</p>
+
+    <p>Anyway. You lift my mood. That's the whole report.</p>
+
+    <p class="sign">&mdash; Minhaj</p>
+  </article>
+
+  <nav>
+    <a href="meter.html">&gt; next: fragment 2.5</a>
+  </nav>
+</main>
+<script>
+const els = document.querySelectorAll('article p, article h2, .intro, figure');
+els.forEach((el, i) => {
+  el.classList.add('fade-in');
+  el.style.transitionDelay = (i * 0.06) + 's';
+});
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+els.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

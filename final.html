@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FRAGMENT 5 // FINAL TRANSMISSION</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/terminal.css">
+<script src="js/gate.js"></script>
+</head>
+<body class="terminal-page">
+<pre id="terminal"></pre>
+<div id="links" style="display:none; margin-top: 32px; position: relative; z-index: 2;">
+  <a href="PASTE_SPOTIFY_LINK_HERE">&gt; open playlist: The Quiet Kind of Free</a><br><br>
+  <a href="index.html">&gt; rerun from start</a>
+</div>
+<script>
+const lines = [
+  { t: "> TRANSMISSION COMPLETE.", c: "info" },
+  { t: "", c: "default" },
+  { t: "> Summary of findings:", c: "auth" },
+  { t: ">   1. You survived.", c: "default" },
+  { t: ">   2. You chose peace.", c: "default" },
+  { t: ">   3. You see beauty on purpose.", c: "default" },
+  { t: ">   4. You believe in people. That's the rarest thing.", c: "default" },
+  { t: ">   5. You have always been free.", c: "success" },
+  { t: "", c: "default" },
+  { t: "> There was never a password.", c: "dim" },
+  { t: "> Not really.", c: "dim" },
+  { t: "> You didn't need permission to be who you are.", c: "hint" },
+  { t: "", c: "default" },
+  { t: "> I can't be there today.", c: "default" },
+  { t: "> But I'm a message away, always.", c: "default" },
+  { t: "> No walls. No distance. No titans.", c: "info" },
+  { t: "", c: "default" },
+  { t: "> Happy birthday, Nipa.", c: "success" },
+  { t: "> Eat something that isn't instant noodles.", c: "dim" },
+  { t: "", c: "default" },
+  { t: "> — Minhaj", c: "auth" },
+  { t: "> END OF FILE.", c: "dim" }
+];
+
+const term = document.getElementById("terminal");
+const links = document.getElementById("links");
+
+let i = 0;
+function nextLine() {
+  if (i >= lines.length) {
+    term.classList.add("cursor");
+    links.style.display = "block";
+    return;
+  }
+  const item = lines[i];
+  const span = document.createElement("span");
+  span.className = "line-" + item.c;
+  term.appendChild(span);
+
+  let j = 0;
+  const interval = setInterval(() => {
+    if (j < item.t.length) {
+      span.textContent += item.t[j];
+      j++;
+    } else {
+      clearInterval(interval);
+      term.appendChild(document.createTextNode("\n"));
+      i++;
+      const pause = item.t === "" ? 300 : 480;
+      setTimeout(nextLine, pause);
+    }
+  }, 16);
+}
+nextLine();
+</script>
+</body>
+</html>

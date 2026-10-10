@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FRAGMENT 4 // THE LETTER I COULDN'T SEND</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/terminal.css">
+<script src="js/gate.js"></script>
+</head>
+<body class="terminal-page">
+<pre id="terminal"></pre>
+<div id="links" style="display:none; margin-top: 32px; position: relative; z-index: 2;">
+  <a href="fragments.html">&gt; next: fragments</a>
+</div>
+<script>
+const lines = [
+  { t: "> opening file: letter_to_nipa.txt", c: "info" },
+  { t: "", c: "default" },
+  { t: "> typing at human speed.", c: "dim" },
+  { t: "> do not skip ahead. it won't let you anyway.", c: "dim" },
+  { t: "", c: "default" },
+  { t: "Nipa.", c: "success" },
+  { t: "", c: "default" },
+  { t: "I wanted to say this out loud. I can't today, so I'm typing it. Slower than I'd talk, which is honestly probably better for both of us.", c: "default" },
+  { t: "", c: "default" },
+  { t: "Here's the thing I keep coming back to. You're the youngest. Everyone in the house was already grown, already gone, already past the phase you were just entering. You got the quiet version. And you still turned out like this. Kind. Observant. The one who notices the petals on the bench before anyone else sees them.", c: "default" },
+  { t: "", c: "default" },
+  { t: "That's not luck. That's a decision you kept making, over and over, on days nobody was watching.", c: "default" },
+  { t: "", c: "default" },
+  { t: "And then there's us.", c: "hint" },
+  { t: "", c: "default" },
+  { t: "Apu. Same age. Siblings from another universe. Two years ago I wouldn't have guessed any of this. Now I can't unsee it. All I know is that I said it and something in me went: yeah. That's it. That's the shape.", c: "default" },
+  { t: "", c: "default" },
+  { t: "The 89% thing. The other 11%. I told you my theory — it's the stuff I'm still growing into. Your calm. Your eye. The way you photograph the falling part, not just the bloom.", c: "default" },
+  { t: "", c: "default" },
+  { t: "You make me want to be slower. In a good way.", c: "default" },
+  { t: "", c: "default" },
+  { t: "I don't have a thesis. I don't have a bow to tie this with. I just wanted to say, on the record, on your birthday:", c: "default" },
+  { t: "", c: "default" },
+  { t: "You are seen. Not for what you survived. For what you built out of it.", c: "success" },
+  { t: "", c: "default" },
+  { t: "And I'm glad you exist. In this universe or any other one you want to name.", c: "success" },
+  { t: "", c: "default" },
+  { t: "Happy birthday, apu.", c: "info" },
+  { t: "", c: "default" },
+  { t: "— Minhaj", c: "auth" },
+  { t: "", c: "default" },
+  { t: "> end of file.", c: "dim" }
+];
+
+const term = document.getElementById("terminal");
+const links = document.getElementById("links");
+
+let i = 0;
+function nextLine() {
+  if (i >= lines.length) {
+    term.classList.add("cursor");
+    links.style.display = "block";
+    return;
+  }
+  const item = lines[i];
+  const span = document.createElement("span");
+  span.className = "line-" + item.c;
+  term.appendChild(span);
+
+  let j = 0;
+  const interval = setInterval(() => {
+    if (j < item.t.length) {
+      span.textContent += item.t[j];
+      j++;
+    } else {
+      clearInterval(interval);
+      term.appendChild(document.createTextNode("\n"));
+      i++;
+      const pause = item.t === "" ? 400 : 900;
+      setTimeout(nextLine, pause);
+    }
+  }, 42); // ~human typing speed
+}
+nextLine();
+</script>
+</body>
+</html>

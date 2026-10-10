@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FRAGMENT 4.7 // ACHIEVEMENTS</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<script src="js/gate.js"></script>
+<style>
+.ach { padding: 22px 0; border-bottom: 1px solid rgba(57,255,20,0.1); display: flex; align-items: flex-start; gap: 20px; }
+.ach-icon { font-size: 24px; line-height: 1; color: var(--green); text-shadow: 0 0 14px rgba(57,255,20,0.6); min-width: 40px; text-align: center; margin-top: 4px; }
+.ach-title { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--green); letter-spacing: 0.1em; margin-bottom: 6px; }
+.ach-body { font-size: 17px; color: var(--text-main); line-height: 1.5; }
+</style>
+</head>
+<body>
+<main>
+  <p class="boot">&gt; FRAGMENT 4.7 &mdash; PLAYER PROFILE</p>
+
+  <article>
+    <h2>Achievements Unlocked</h2>
+    <p class="intro">Player: NIPA. Class: Photographer. Level: 17. Status: still going.</p>
+
+    <div class="ach"><div class="ach-icon">◆</div><div><div class="ach-title">BECAME A PHOTOGRAPHER</div><div class="ach-body">Photographed the falling part, not just the bloom. +100 XP.</div></div></div>
+
+    <div class="ach"><div class="ach-icon">◆</div><div><div class="ach-title">CHOSE PEACE OVER RAGE</div><div class="ach-body">Had every reason not to. Did it anyway. +500 XP.</div></div></div>
+
+    <div class="ach"><div class="ach-icon">◆</div><div><div class="ach-title">SURVIVED THE QUIET HOUSE</div><div class="ach-body">Nobody watching. Still became kind. +800 XP.</div></div></div>
+
+    <div class="ach"><div class="ach-icon">◆</div><div><div class="ach-title">FOUND A SIBLING IN ANOTHER UNIVERSE</div><div class="ach-body">Same age. Different timeline. Somehow works. +200 XP.</div></div></div>
+
+    <div class="ach"><div class="ach-icon">◆</div><div><div class="ach-title">LAUGHED AT BANGLA WITH HIM</div><div class="ach-body">Both failing. Both fine with it. +150 XP.</div></div></div>
+
+    <div class="ach"><div class="ach-icon">◆</div><div><div class="ach-title">TURNED 17</div><div class="ach-body">Not the final boss. Just the tutorial. +1000 XP.</div></div></div>
+
+    <div class="ach"><div class="ach-icon" style="color:var(--amber); text-shadow:0 0 14px rgba(255,184,77,0.6);">★</div><div><div class="ach-title" style="color:var(--amber);">HIDDEN ACHIEVEMENT</div><div class="ach-body">Made someone across the world want to build them an entire website. +∞ XP.</div></div></div>
+
+    <p class="sign" style="margin-top: 60px; text-align: center;">&mdash; M</p>
+  </article>
+
+  <nav>
+    <a href="starmap.html">&gt; next: fragment 4.8</a>
+  </nav>
+</main>
+<script>
+const els = document.querySelectorAll('.ach, article h2, .intro, .sign');
+els.forEach((el, i) => { el.classList.add('fade-in'); el.style.transitionDelay = (i * 0.05) + 's'; });
+const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
+els.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
+

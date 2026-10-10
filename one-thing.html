@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FRAGMENT 4.9 // IF I COULD SAY ONE THING</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<script src="js/gate.js"></script>
+<style>
+.sent {
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 28px;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--text-main);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+  padding: 40px 20px;
+}
+.sent.visible { opacity: 1; transform: translateY(0); }
+.sent.mid { color: var(--green); text-shadow: 0 0 24px rgba(57,255,20,0.4); }
+.sent.end { color: var(--amber); text-shadow: 0 0 24px rgba(255,184,77,0.3); }
+</style>
+</head>
+<body>
+<main>
+  <p class="boot" style="text-align:center;">&gt; FRAGMENT 4.9 &mdash; FIVE SENTENCES</p>
+
+  <div class="sent">You are the youngest.</div>
+
+  <div class="sent">That should have made you small. It didn't.</div>
+
+  <div class="sent mid">You turned a quiet house into a place that could hold you.</div>
+
+  <div class="sent mid">Then you opened a door and let someone else in.</div>
+
+  <div class="sent end">That someone is me. I'm staying.</div>
+
+  <nav style="text-align:center; margin-top: 80px;">
+    <a href="final.html">&gt; next: final transmission</a>
+  </nav>
+</main>
+<script>
+const sents = document.querySelectorAll('.sent');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.4 });
+sents.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
+

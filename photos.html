@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FRAGMENT 3 // PERSPECTIVE</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<script src="js/gate.js"></script>
+</head>
+<body>
+<main>
+  <p class="boot">&gt; LOADING FRAGMENT 3...</p>
+
+  <p class="intro">
+    You take photos of things people walk past. That's not a hobby. That's a way of being alive. Here are five of yours I keep coming back to.
+  </p>
+
+  <figure>
+    <img src="img/growth.jpg" alt="new growth from old wood">
+    <figcaption>Old wood. New leaves. Nobody gave it permission. It did it anyway.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="img/pigeon.jpg" alt="pigeon on rock against sky">
+    <figcaption>Alone, but not lonely. There's a difference. You photographed it.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="img/petals.jpg" alt="petals falling on bench">
+    <figcaption>You noticed the falling part. Most people only shoot the bloom.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="img/bougainvillea.jpg" alt="bougainvillea looking up">
+    <figcaption>You pointed the camera at the sky through the flowers. Most people look down.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="img/eye.jpg" alt="close-up of eye">
+    <figcaption>You look at things like they're worth looking at. That's the whole thing.</figcaption>
+  </figure>
+
+  <p style="margin-top: 40px; font-style: italic; color: var(--text-dim); text-align: center;">Nature doesn't pose. You just catch it being itself. That's a rare skill.</p>
+
+  <nav>
+    <a href="recipe.html">&gt; next: fragment 4</a>
+  </nav>
+</main>
+<script>
+const els = document.querySelectorAll('article p, article h2, .intro, figure');
+els.forEach((el, i) => {
+  el.classList.add('fade-in');
+  el.style.transitionDelay = (i * 0.08) + 's';
+});
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+els.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
